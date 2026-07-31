@@ -30,7 +30,7 @@
     var src = el.getAttribute("data-img");
     var img = new Image();
     img.onload = function () {
-      el.style.setProperty("--bg-url", "url('" + src + "')");
+      el.style.backgroundImage = "url('" + src + "')";
       el.classList.add("loaded");
     };
     img.src = src;
