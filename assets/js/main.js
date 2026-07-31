@@ -25,36 +25,6 @@
     });
   });
 
-  /* ---- Load real photos when present, keep elegant placeholder otherwise ---- */
-  document.querySelectorAll(".ph-image[data-img]").forEach(function (el) {
-    var src = el.getAttribute("data-img");
-    var img = new Image();
-    img.onload = function () {
-      el.style.backgroundImage = "url('" + src + "')";
-      el.classList.add("loaded");
-    };
-    img.src = src;
-  });
-
-  /* ---- Scroll reveal ---- */
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
-    );
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("in-view"); });
-  }
-
   /* ---- Gallery lightbox ---- */
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightboxImg");
@@ -62,8 +32,7 @@
 
   document.querySelectorAll(".gallery-item").forEach(function (item) {
     item.addEventListener("click", function () {
-      var full = item.getAttribute("data-full") || item.getAttribute("data-img");
-      lightboxImg.src = full;
+      lightboxImg.src = item.getAttribute("data-full");
       lightbox.classList.add("open");
     });
   });
