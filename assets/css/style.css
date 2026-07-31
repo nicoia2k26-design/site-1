@@ -188,21 +188,21 @@ p:last-child{ margin-bottom: 0; }
   height: 100svh;
   min-height: 560px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   overflow: hidden;
 }
-.hero-media{ position: absolute; inset: 0; background-position: center 62% !important; }
+.hero-media{ position: absolute; inset: 0; background-position: center 22% !important; }
 .hero-overlay{
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(18,14,11,0.58) 0%, rgba(18,14,11,0.5) 45%, rgba(18,14,11,0.8) 100%);
+  background: linear-gradient(180deg, rgba(18,14,11,0.15) 0%, rgba(18,14,11,0.2) 35%, rgba(18,14,11,0.88) 100%);
 }
 .hero-content{
   position: relative;
   z-index: 2;
   text-align: center;
   color: var(--white);
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 5rem;
 }
 .hero-sun{
   width: 130px;
@@ -279,7 +279,7 @@ p:last-child{ margin-bottom: 0; }
    ======================================================== */
 .intro{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.85fr 1.15fr;
   align-items: stretch;
   max-width: var(--container);
   margin: 0 auto;
@@ -294,7 +294,7 @@ p:last-child{ margin-bottom: 0; }
 }
 .intro-text p{ color: var(--ink-soft); font-size: 1.02rem; max-width: 46ch; }
 .intro-media{
-  min-height: 360px;
+  min-height: 520px;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 30px 60px -20px rgba(42,38,33,0.35);
@@ -388,21 +388,26 @@ p:last-child{ margin-bottom: 0; }
   max-width: 44ch;
 }
 
-.menu-feature{
-  margin: 2.4rem 0;
-  border-radius: 4px;
+.menu-item--photo{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.menu-item-text{ flex: 1; min-width: 0; }
+.menu-thumbs{
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.menu-thumb{
+  width: 68px;
+  height: 68px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 24px 48px -18px rgba(42,38,33,0.3);
+  box-shadow: 0 10px 20px -10px rgba(42,38,33,0.4);
 }
-.menu-feature .ph-image{ aspect-ratio: 4 / 3; }
-.menu-feature figcaption{
-  background: var(--white);
-  padding: 0.9rem 1.1rem;
-  font-size: 0.82rem;
-  font-style: italic;
-  color: var(--ink-soft);
-  border-top: 1px solid var(--cream-soft);
-}
+.menu-thumb::after{ font-size: 0.5rem; padding: 0.3em; }
 
 /* ========================================================
    Kids band
@@ -601,4 +606,6 @@ p:last-child{ margin-bottom: 0; }
   .gallery-item, .gallery-item.tall, .gallery-item.wide{ grid-column: span 1; grid-row: span 1; }
   .menu-item-head{ flex-wrap: wrap; }
   .dish{ white-space: normal; }
+  .menu-item--photo{ flex-direction: column; }
+  .menu-thumbs{ align-self: flex-start; }
 }
